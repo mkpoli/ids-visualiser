@@ -1,0 +1,59 @@
+body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  /* color: #2c3e50; */
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+span {
+  position: relative;
+  font-size: 20px;
+  font-family: 'Noto Serif CJK JP';
+}
+
+.uline:not(.level-0)::after {
+  position: absolute;
+  content: '';
+  height: 1px;
+  /* bottom: calc(-25px + var(--h) * 5px); */
+  bottom: calc(0px - var(--h) * 5px);
+  /* bottom: clac(-4px - var(--h) * 5px); */
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: currentColor;
+}
+
+.level-1 {
+  --h: 1;
+  color: rgb(0% 76.95% 85.57%);
+}
+
+.level-2 {
+  --h: 2;
+  color: rgb(69.46% 69.37% 69.41%);
+}
+
+.level-3 {
+  --h: 3;
+  color: rgb(100% 54.3% 76.73%);
+}
+
+.level-4 {
+  --h: 4;
+  color: rgb(95.25% 61.39% 0%);
+}
+
+.level-5 {
+  --h: 5;
+  color: rgb(73.75% 64.38% 100%);
+}
