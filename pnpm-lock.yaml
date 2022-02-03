@@ -2,8 +2,8 @@ lockfileVersion: 5.3
 
 specifiers:
   parse-ids: ^0.1.0
-  typescript: ^4.4.4
-  vite: ^2.7.2
+  typescript: ^4.5.5
+  vite: ^2.7.13
 
 dependencies:
   parse-ids: 0.1.0
