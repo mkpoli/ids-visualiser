@@ -38,7 +38,7 @@ document.querySelector<HTMLInputElement>('input')!.addEventListener('input', e =
   appendVisualisedIDS((e.target as HTMLInputElement).value)
 })
 
-document.addEventListener('DOMContentLoaded', (e) => {
+document.addEventListener('DOMContentLoaded', () => {
   appendVisualisedIDS('⿺辶⿳穴⿲月⿱⿲幺言幺⿲長馬長刂心')
 })
  
