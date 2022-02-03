@@ -1,4 +1,4 @@
-name: pbulish
+name: publish
 
 on: push
 
