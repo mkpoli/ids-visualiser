@@ -77,3 +77,9 @@ span {
   --h: 9;
   color: rgb(71.28% 71.4% 0%);
 }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 1em;
+}

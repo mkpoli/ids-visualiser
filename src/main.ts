@@ -23,6 +23,34 @@ function recursivelyCreateSpanFromTree(tree: IDS, level: number = 0): HTMLSpanEl
   }
 }
 
+function createListItem(classes: string[], text: string): HTMLLIElement {
+  const item = document.createElement('li')
+  item.classList.add(...classes)
+  item.textContent = text
+  return item
+}
+
+function recuresivelyCreateListTree(tree: IDS, ul: HTMLUListElement, level: number = 0): void {
+  const levelClass = `level-${level}`
+  if (tree.type === 'char') {
+    const item = createListItem([], tree.char)
+    ul.appendChild(item)
+  } else {
+    const head = createListItem([levelClass], tree.type)
+    const childrenLisItem = createListItem([levelClass], '')
+    const childrenList = document.createElement('ul')
+    children(tree).forEach((child) => {
+      const list = document.createElement('ul')
+      recuresivelyCreateListTree(child, list, level + 1)
+      childrenList.appendChild(list)
+    })
+    childrenLisItem.appendChild(childrenList)
+    ul.appendChild(head)
+    ul.appendChild(childrenLisItem)
+  }
+}
+
+
 function appendVisualisedIDS(ids: string) {
   const container = document.querySelector<HTMLDivElement>('#ids-container')!
   const rootIDS = parse(ids)
@@ -31,7 +59,11 @@ function appendVisualisedIDS(ids: string) {
   container.innerHTML = ''
   container.classList.add('container')
   recursivelyCreateSpanFromTree(rootIDS).forEach((span) => container.appendChild(span))
-  document.body.appendChild(container)
+
+  const treeContainer = document.querySelector<HTMLDivElement>('#tree-container')!
+  const ul = document.createElement('ul')
+  recuresivelyCreateListTree(rootIDS, ul)
+  treeContainer.appendChild(ul)
 }
 
 document.querySelector<HTMLInputElement>('input')!.addEventListener('input', e => {
@@ -41,4 +73,3 @@ document.querySelector<HTMLInputElement>('input')!.addEventListener('input', e =
 document.addEventListener('DOMContentLoaded', () => {
   appendVisualisedIDS('⿺辶⿳穴⿲月⿱⿲幺言幺⿲長馬長刂心')
 })
- 
